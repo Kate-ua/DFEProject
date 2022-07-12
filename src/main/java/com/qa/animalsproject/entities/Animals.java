@@ -37,7 +37,45 @@ public class Animals {
 		
 	}
 
-	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
+	public String getHabitat() {
+		return habitat;
+	}
+
+	public void setHabitat(String habitat) {
+		this.habitat = habitat;
+	}
+
+	public Integer getNumOfLegs() {
+		return numOfLegs;
+	}
+
+	public void setNumOfLegs(Integer numOfLegs) {
+		this.numOfLegs = numOfLegs;
+	}
 
 
 }
