@@ -18,7 +18,7 @@ public class Animals {
 	@Column(name = "type", nullable=false)
 	private String type;
 	
-	@Column(nullable = false)
+	@Column(nullable = false, unique=true)
 	private Integer age;
 	
 	@Column(nullable = false)
@@ -81,9 +81,23 @@ public class Animals {
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(type, habitat, age, numOfLegs);
+		return Objects.hash(age, type, habitat, id, numOfLegs);
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Animals other = (Animals) obj;
+		return Objects.equals(age, other.age) && Objects.equals(type, other.type) && Objects.equals(habitat, other.habitat) 
+				&& id == other.id && Objects.equals(numOfLegs, other.numOfLegs);
+		
+		
+	}
 	
 
 
