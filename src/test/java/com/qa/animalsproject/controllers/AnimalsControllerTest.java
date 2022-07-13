@@ -23,7 +23,7 @@ import com.qa.animalsproject.entities.Animals;
 @AutoConfigureMockMvc
 @Sql(scripts = {"classpath:testschema.sql", "classpath:testdata.sql"}, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
 @ActiveProfiles("test")
-public class AnimalControllerTest {
+public class AnimalsControllerTest {
 	
 	@Autowired
 	private MockMvc mvc;

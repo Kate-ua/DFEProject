@@ -3,9 +3,9 @@ DROP TABLE IF EXISTS `animals`;
 CREATE TABLE `animals` (
 	`id` BIGINT AUTO_INCREMENT,
 	`type` VARCHAR(255) NOT NULL,
-	`age` INT UNIQUE NOT NULL,
+	`age` INT NOT NULL UNIQUE,
 	`habitat` VARCHAR(255) NOT NUL,
 	`numOfLegs` INT NOT NULL,
 	PRIMARY KEY(`id`)
-)	
+);	
 	
