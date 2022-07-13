@@ -33,7 +33,7 @@ public class AnimalControllerTest {
 	
 	@Test
 	public void ReadAllTest() throws Exception {
-		List<Animals>output = new ArrayList<>();
+		List<Animals> output = new ArrayList<>();
 		Animals entry = new Animals (1L, "koala", 11, "open forest", 2);
 		output.add(entry);
 		

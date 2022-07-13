@@ -1,1 +1,1 @@
-INSERT INTO `animals`(`type`, `habitat`, `age`, `numOfLegs`) VALUES (`koala`, `open forest`, `11`, `2`);
+INSERT INTO `animals`(`type`, `age`, `habitat`, `numOfLegs`) VALUES (`koala`, `11`, `open forest`, `2`);
