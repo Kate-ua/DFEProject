@@ -15,7 +15,7 @@ public class Animals {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(name = "type", nullable=false)
+	@Column(nullable=false)
 	private String type;
 	
 	@Column(nullable = false, unique=true)
@@ -29,7 +29,7 @@ public class Animals {
 	
 	public Animals() {}
 
-	public Animals(long id, String type, Integer age, String habitat, Integer numOfLegs) {
+	public Animals(long id, String type, int age, String habitat, int numOfLegs) {
 		super();
 		this.id=id;
 		this.type=type;
@@ -39,6 +39,7 @@ public class Animals {
 		
 	}
 
+	
 	public long getId() {
 		return id;
 	}
@@ -78,6 +79,8 @@ public class Animals {
 	public void setNumOfLegs(Integer numOfLegs) {
 		this.numOfLegs = numOfLegs;
 	}
+
+
 	
 	@Override
 	public int hashCode() {

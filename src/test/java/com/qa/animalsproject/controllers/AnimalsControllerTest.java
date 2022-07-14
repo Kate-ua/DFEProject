@@ -16,6 +16,7 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 import org.springframework.test.web.servlet.MockMvc;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.qa.animalsproject.entities.Animals;
 
@@ -39,7 +40,7 @@ public class AnimalsControllerTest {
 		
 		String outputAsJSON = mapper.writeValueAsString(output);
 		
-		mvc.perform(get("/supplyer/readAll")
+		mvc.perform(get("/animals/readAll")
 				.contentType(MediaType.APPLICATION_JSON))
 				.andExpect(content().json(outputAsJSON));
 		
