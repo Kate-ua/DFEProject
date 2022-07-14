@@ -55,20 +55,19 @@ public class AnimalsControllerTest {
 				.andExpect(content().json(entryAsJSON));
 		
 	}
-	
 	@Test
-	public void createTest() throws Exception {
-		Animals entry = new Animals ("crocodile", 9, "rivers", 4);
-		String entryAsJSON = this.mapper.writeValueAsString(entry);
+	public void readByTypeTest() throws Exception {
+		List<Animals> output = new ArrayList<>();
+		Animals entry = new Animals (1L, "koala", 11, "open forest", 2);
+		output.add(entry);
 		
-		Animals result = new Animals (1L, "crocodile", 9, "rivers", 4);
-		String resultAsJSON = this.mapper.writeValueAsString(result);
+		String outputAsJSON = mapper.writeValueAsString(output);
 		
-		
-		mvc.perform(get("/animals/readById/1")
-				.contentType(MediaType.APPLICATION_JSON)
-				.content(entryAsJSON))
-				.andExpect(content().json(entryAsJSON));
+		mvc.perform(get("/animals/readByType")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(content().json(outputAsJSON));
 	}
+	
+	
 
 }
