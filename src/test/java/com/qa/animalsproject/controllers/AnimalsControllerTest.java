@@ -1,6 +1,7 @@
 package com.qa.animalsproject.controllers;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 import java.util.ArrayList;
@@ -55,19 +56,31 @@ public class AnimalsControllerTest {
 				.andExpect(content().json(entryAsJSON));
 		
 	}
-	@Test
-	public void readByTypeTest() throws Exception {
-		List<Animals> output = new ArrayList<>();
-		Animals entry = new Animals (1L, "koala", 11, "open forest", 2);
-		output.add(entry);
-		
-		String outputAsJSON = mapper.writeValueAsString(output);
-		
-		mvc.perform(get("/animals/readByType")
-				.contentType(MediaType.APPLICATION_JSON))
-				.andExpect(content().json(outputAsJSON));
-	}
+//	@Test
+//	public void readByTypeTest() throws Exception {
+//		List<Animals> output = new ArrayList<>();
+//		Animals entry = new Animals (1L, "koala", 11, "open forest", 2);
+//		output.add(entry);
+//		
+//		String outputAsJSON = mapper.writeValueAsString(output);
+//		
+//		mvc.perform(get("/animals/readByType")
+//				.contentType(MediaType.APPLICATION_JSON))
+//				.andExpect(content().json(outputAsJSON));
 	
+	@Test
+	public void createTest() throws Exception{
+		Animals entry = new Animals ("koala", 9, "open forest", 2);
+		String entryAsJSON = this.mapper.writeValueAsString(entry);
+		Animals result = new Animals (2L, "koala", 9, "open forest", 2);
+		String resultAsJSON = this.mapper.writeValueAsString(result);
+		
+		mvc.perform(post("/animals/create")
+			.contentType(MediaType.APPLICATION_JSON)
+			.content(entryAsJSON))
+			.andExpect(content().json(resultAsJSON));
+	}
+
 	
 
 }

@@ -28,6 +28,14 @@ public class Animals {
 	private Integer numOfLegs;
 	
 	public Animals() {}
+	
+	public Animals(String type, int age, String habitat, int numOfLegs) {
+		super();
+		this.type=type;
+		this.age=age;
+		this.habitat=habitat;
+		this.numOfLegs=numOfLegs;
+	}
 
 	public Animals(long id, String type, int age, String habitat, int numOfLegs) {
 		super();
