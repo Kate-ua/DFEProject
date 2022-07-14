@@ -88,7 +88,6 @@ public class Animals {
 		this.numOfLegs = numOfLegs;
 	}
 
-
 	
 	@Override
 	public int hashCode() {
@@ -104,8 +103,7 @@ public class Animals {
 		if (getClass() != obj.getClass())
 			return false;
 		Animals other = (Animals) obj;
-		return Objects.equals(age, other.age) && Objects.equals(type, other.type) && Objects.equals(habitat, other.habitat) 
-				&& id == other.id && Objects.equals(numOfLegs, other.numOfLegs);
+		return Objects.equals(age, other.age) && Objects.equals(type, other.type) && Objects.equals(habitat, other.habitat) && id == other.id && Objects.equals(numOfLegs, other.numOfLegs);
 		
 		
 	}
