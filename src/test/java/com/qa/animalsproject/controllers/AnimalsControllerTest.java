@@ -45,7 +45,7 @@ public class AnimalsControllerTest {
 	}
 		
 	@Test
-	public void readById() throws Exception {
+	public void readByIdTest() throws Exception {
 		Animals entry = new Animals (1L, "koala", 11, "open forest", 2);
 				
 		String entryAsJSON = this.mapper.writeValueAsString(entry);
@@ -56,6 +56,19 @@ public class AnimalsControllerTest {
 		
 	}
 	
-	
+	@Test
+	public void createTest() throws Exception {
+		Animals entry = new Animals ("crocodile", 9, "rivers", 4);
+		String entryAsJSON = this.mapper.writeValueAsString(entry);
+		
+		Animals result = new Animals (1L, "crocodile", 9, "rivers", 4);
+		String resultAsJSON = this.mapper.writeValueAsString(result);
+		
+		
+		mvc.perform(get("/animals/readById/1")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(entryAsJSON))
+				.andExpect(content().json(entryAsJSON));
+	}
 
 }
