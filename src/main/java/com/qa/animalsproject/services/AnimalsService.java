@@ -33,6 +33,9 @@ public class AnimalsService {
 		return this.repos.findAnimalsByType(type);
 		
 	}
+	public Animals readByAge(int age) {
+		return this.repos.findByAge(age);
+	}
 	
 	public Animals update(long id, Animals animals) {
 		Animals existing = this.repos.findById(id).get();

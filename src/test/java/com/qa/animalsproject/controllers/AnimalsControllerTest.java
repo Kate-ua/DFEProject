@@ -66,7 +66,7 @@ public class AnimalsControllerTest {
 
 		String outputAsJSON = mapper.writeValueAsString(output);
 
-		mvc.perform(get("/animals/readByType").contentType(MediaType.APPLICATION_JSON))
+		mvc.perform(get("/animals/readByType/koala").contentType(MediaType.APPLICATION_JSON))
 				.andExpect(content().json(outputAsJSON));
 	}
 

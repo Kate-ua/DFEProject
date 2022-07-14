@@ -39,6 +39,12 @@ public class AnimalsController {
 	@GetMapping("readByType/{type}")
 	public List<Animals> readByType(@PathVariable String type) {
 		return this.service.readByType(type);
+		
+	}
+
+	@GetMapping("readByAge/{age}")
+	public Animals readByAge(@PathVariable int age) {
+		return this.service.readByAge(age);	
 
 	}
 
