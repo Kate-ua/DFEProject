@@ -1,5 +1,6 @@
 package com.qa.animalsproject.controllers;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -57,17 +58,17 @@ public class AnimalsControllerTest {
 
 	}
 
-//	@Test
-//	public void readByTypeTest() throws Exception {
-//		List<Animals> output = new ArrayList<>();
-//		Animals entry = new Animals(1L, "koala", 11, "open forest", 2);
-//		output.add(entry);
-//
-//		String outputAsJSON = mapper.writeValueAsString(output);
-//
-//		mvc.perform(get("/animals/readByType").contentType(MediaType.APPLICATION_JSON))
-//				.andExpect(content().json(outputAsJSON));
-//	}
+	@Test
+	public void readByTypeTest() throws Exception {
+		List<Animals> output = new ArrayList<>();
+		Animals entry = new Animals(1L, "koala", 11, "open forest", 2);
+		output.add(entry);
+
+		String outputAsJSON = mapper.writeValueAsString(output);
+
+		mvc.perform(get("/animals/readByType").contentType(MediaType.APPLICATION_JSON))
+				.andExpect(content().json(outputAsJSON));
+	}
 
 	@Test
 	public void createTest() throws Exception {
@@ -90,5 +91,13 @@ public class AnimalsControllerTest {
 		mvc.perform(put("/animals/update/1").contentType(MediaType.APPLICATION_JSON).content(entryAsJSON))
 				.andExpect(content().json(resultAsJSON));
 
+	}
+	
+	@Test
+	public void deleteTest() throws Exception {
+		
+		mvc.perform(delete("/animals/delete/1")
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(content().string("true"));
 	}
 }
