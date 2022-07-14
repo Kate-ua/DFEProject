@@ -12,4 +12,6 @@ public interface AnimalsRepos extends JpaRepository<Animals, Long> {
 
 	List<Animals> findAnimalsByType(String type);
 
+	Animals findAnimalsByAge(int age);
+
 }
