@@ -69,6 +69,15 @@ public class AnimalsControllerTest {
 		mvc.perform(get("/animals/readByType/koala").contentType(MediaType.APPLICATION_JSON))
 				.andExpect(content().json(outputAsJSON));
 	}
+	@Test
+	public void readByAgeTest() throws Exception {
+		Animals entry = new Animals(1L, "koala", 11, "open forest", 2);
+
+		String entryAsJSON = this.mapper.writeValueAsString(entry);
+
+		mvc.perform(get("/animals/readByAge/11").contentType(MediaType.APPLICATION_JSON))
+				.andExpect(content().json(entryAsJSON));
+	}
 
 	@Test
 	public void createTest() throws Exception {
